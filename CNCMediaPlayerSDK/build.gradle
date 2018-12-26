@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 25
+    }
+    buildTypes {
+        debug{
+
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    publishNonDefault true
+//    productFlavors{
+//        full{}
+//        live{}
+//    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'junit:junit:4.12'
+    provided files('libs/CNCMediaPlayerSDKLib_V1.6.2.jar')
+    provided files('libs/auth_sdk_v1.0.2.jar')
+}

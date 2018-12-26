@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/layout_controller_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/cnc_titlebar_bg">
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="返回"
+        android:gravity="center"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/cnc_player_back_btn"
+        android:visibility="invisible"/>
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/btn_back"
+        android:ellipsize="end"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:maxLines="1" />
+
+</RelativeLayout>

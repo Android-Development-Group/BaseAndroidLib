@@ -1,0 +1,7 @@
+<resources>
+    <style name="CNCVideoView.Widget.ProgressBar" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/cnc_player_loading_rotate</item>
+        <item name="android:indeterminateDuration">1000</item>
+    </style>
+
+</resources>

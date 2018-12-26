@@ -1,0 +1,1 @@
+include ':app', ':weblibrary', ':x5_mbswebplugin',':AILIYUN_PLAY_SkinLibrary','umLibrary','pickphotoview','mbswebplugin_chrome',':CNCMediaPlayerSDK'

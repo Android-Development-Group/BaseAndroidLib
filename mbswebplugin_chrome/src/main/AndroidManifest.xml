@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mobisoft.mbswebplugin">
+
+<!--
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+-->
+    <uses-permission android:name="scott.permission.MY_BROADCAST_PERMISSION" />
+    <!-- 读 写sdcard，storage等等 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!--
+        <uses-permission android:name="android.permission.READ_CONTACTS" />
+    -->
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 引用自己声明的权限 ，可不引用 -->
+    <!--         <uses-permission android:name="com.mobisoft.mbswebplugin.boardcast" /> -->
+    <!-- 声明自定义权限 -->
+    <!--
+   <permission
+           android:name="com.mobisoft.mbswebplugin.boardcast"
+           android:protectionLevel="signature" />
+    -->
+    <application>
+
+        <!-- <activity android:name=".GDMap.AMapLocationAcitvity" -->
+        <!-- android:label="地图定位界面" -->
+        <!-- android:screenOrientation="portrait"></activity> -->
+
+        <activity
+            android:name=".Voide.EduMediaPlayer"
+            android:label="播放视频"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/MyNoActionBar" />
+        <activity android:name=".view.ImageBrowserActivty.ImageBrowserActivty" />
+
+        <service
+            android:name=".proxy.server.ProxyService"
+            android:exported="false" />
+        <service
+            android:name=".proxy.Cache.CacheService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver android:name=".proxy.Cache.CacheBroadcast">
+
+            <!-- android:permission="com.mobisoft.mbswebplugin.boardcast" -->
+            <intent-filter android:priority="100">
+                <action android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".MvpMbsWeb.MbsWebActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/MyNoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".view.ImageBowers.ImagePagerActivity" />
+        <activity
+            android:name=".core.QrcodeActivity"
+            android:theme="@style/MyNoActionBar" />
+        <activity
+            android:name=".MvpMbsWeb.TbsReaderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyNoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+        </activity>
+
+        <service
+            android:name=".Cmd.Working.DownloadVideoService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>

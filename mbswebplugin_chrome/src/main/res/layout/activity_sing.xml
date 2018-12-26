@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5e5e5"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_sing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_system_status_bar">
+
+        <RelativeLayout
+            android:id="@+id/rll_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_cancel_sing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="电子签名"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/text_sure_sing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sure"
+                android:textColor="@color/white"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/text_rest_sing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重置"
+                android:layout_toLeftOf="@id/text_sure_sing"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/paint_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" />
+
+</LinearLayout>

@@ -1,0 +1,208 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
+//    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    //android studio默认so文件加载目录为:src/main/jniLibs
+//    如在module的build.gradle按照如下方式,自定义了so文件加载目录请确保对应目录下只有armeabi目录
+        sourceSets {
+            main{
+                jniLibs.srcDirs = ['libs']
+            }
+        }
+}
+task clearJar(type: Delete) {
+    delete 'build/libs/mbswbplugin_0.0.9.jar'////这行表示如果你已经打过一次包了，再进行打包则把原来的包删掉
+}
+
+task makeJar(type: proguard.gradle.ProGuardTask, dependsOn: "build") {
+// 未混淆的jar
+    injars 'build/intermediates/bundles/release/classes.jar'
+// 混淆后的jar路径
+    outjars 'build/libs/mbswbplugin_0.0.9.jar'
+// 具体需要keep住的类
+    configuration 'proguard-rules.pro'
+}
+makeJar.dependsOn(clearJar, build)
+
+
+dependencies {
+    compile files('libs/picasso-2.5.2.jar')
+    compile files('libs/fastjson-1.2.23.jar')
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    provided 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.mobisoft.view:mbsmsgview:0.0.1@aar'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.github.chrisbanes.photoview:library:1.2.4'
+    compile 'com.werb.pickphotoview:pickphotoview:0.1.5'
+    // Last Version
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.felipecsl:gifimageview:2.2.0'
+    compile 'com.contrarywind:Android-PickerView:3.2.5'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
+
+    compile files('libs/tbs_sdk_thirdapp_v3.6.0.1183_43604_sharewithdownload_withoutGame_obfs_20180211_105126.jar')
+}
+
+//if (project.hasProperty("android")) { // Android libraries
+//    task sourcesJar(type: Jar) {
+//        classifier = 'sources'
+//        from android.sourceSets.main.java.srcDirs
+//    }
+//    task javadoc(type: Javadoc) {
+//
+//        source = android.sourceSets.main.java.srcDirs
+//        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//    }
+//} else { // Java libraries
+//    task sourcesJar(type: Jar, dependsOn: classes) {
+//        classifier = 'sources'
+//        from sourceSets.main.allSource
+//    }
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}
+//
+////添加UTF-8编码否则注释可能JAVADOC文档可能生成不了
+//javadoc {
+//    options {
+//        encoding "UTF-8"
+//        charSet 'UTF-8'
+//        author true
+//        version true
+//        links "http://docs.oracle.com/javase/7/docs/api"
+//        title "swipeJavaDoc"
+//    }
+//    exclude '**/BuildConfig.java'
+//    exclude '**/R.java'
+//}
+//// 你只需要把这里的参数修改为自己的库名称即可
+//ext {
+//    siteUrl = 'https://github.com/FreeManKim/MbsWebPlugin'
+//    gitUrl = 'https://gith ub.com/FreeManKim/MbsWebPlugin.git'
+//    currentVersion = '1.9.2_gt'
+//    groupId = 'com.mobisoft.web'
+//    artifactId = 'webproxy'
+//    desc = 'Android web proxy'
+//}
+//
+//group = groupId
+//version = currentVersion
+//
+//install {
+//    repositories.mavenInstaller {
+//        pom {
+//            project {
+//                name artifactId
+//                description desc
+//                url siteUrl
+//
+//                packaging 'aar'
+//                groupId groupId
+//                artifactId artifactId
+//                version currentVersion
+//
+//                licenses {
+//                    license {
+//                        name 'The Apache Software License, Version 2.0'
+//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id 'gala'
+//                        name 'La Ga'
+//                        email 'fxd0827@gmail.com'
+//                    }
+//                }
+//                scm {
+//                    connection gitUrl
+//                    developerConnection gitUrl
+//                    url siteUrl
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//allprojects {
+//    repositories {
+//        maven {
+//            url properties.getProperty("sdk.dir") + "/extras/android/m2repository"
+//        }
+//        mavenLocal()
+//        jcenter()
+//    }
+//}
+//bintray {
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+//    configurations = ['archives']
+//    pkg {
+//        repo = "maven"
+//        name = artifactId
+//        websiteUrl = siteUrl
+//        vcsUrl = gitUrl
+//        licenses = ["Apache-2.0"]
+//        publish = true
+//        publicDownloadNumbers = true
+//    }
+//
+//    task writeNewPom {
+//        pom {
+//            project {
+//                packaging 'msbweb_plugin'
+//                name 'gala'
+//                url 'https://github.com/FreeManKim/MbsWebPlugin'
+//                licenses {
+//                    license {
+//                        name 'The Apache Software License, Version 2.0'
+//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                        distribution 'repo'
+//                    }
+//                }
+//            }
+//        }.writeTo("$buildDir/poms/pom-default.xml")
+//    }
+//
+//}

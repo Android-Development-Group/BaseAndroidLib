@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title lang="cn">网络连接失败</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.comingSoon {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: rgba(0, 0, 0, .6);
+				z-index: 2;
+			}
+			
+			.comingSoon>div {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 86%;
+				background: rgba(255, 255, 255, 1);
+				border-radius: 0.5rem;
+				text-align: center;
+				line-height: 2;
+				font-size: 1rem;
+				padding: 1rem 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section class="comingSoon">
+			<div class="">
+				<img width="80%" src="img/tip.png" /><br />
+				网络不可用，请检查你的网络设置
+			</div>
+		</section>
+	</body>
+
+</html>

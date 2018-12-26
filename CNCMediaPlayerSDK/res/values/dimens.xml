@@ -1,0 +1,5 @@
+﻿<resources>
+    <dimen name="controller_button_width">50dp</dimen>
+    <dimen name="controller_button_height">30dp</dimen>
+    <dimen name="popup_listview_div">0.4dp</dimen>
+</resources>

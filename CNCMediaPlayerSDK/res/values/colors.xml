@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cnc_gray">#969696</color>
+    <color name="cnc_black">#ff000000</color>
+    <color name="cnc_light_gray">#ffF0F0F0</color>
+    <color name="cnc_titlebar_bg">#7f000000</color>
+</resources>

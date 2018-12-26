@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_mbs_web"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mobisoft.mbswebplugin.MvpMbsWeb.VideoWebActivity">
+    <FrameLayout
+        android:id="@+id/layout_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:minHeight="200dp">
+        <ImageView
+            android:id="@+id/image_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+        <ImageView
+            android:id="@+id/play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/biz_video_list_play_icon_big" />
+
+        <com.mobisoft.mbswebplugin.view.play.wkvideoplayer.view.SuperVideoPlayer
+            android:id="@+id/video_player_item_1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"></com.mobisoft.mbswebplugin.view.play.wkvideoplayer.view.SuperVideoPlayer>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/content_Frame_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
