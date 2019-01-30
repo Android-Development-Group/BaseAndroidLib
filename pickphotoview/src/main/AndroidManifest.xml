@@ -11,11 +11,11 @@
 
         <activity android:name="com.werb.pickphotoview.PickPhotoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/PickBaseTheme"/>
+            android:theme="@style/Theme.Design.NoActionBar"/>
 
         <activity android:name=".PickPhotoPreviewActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Full.Theme"/>
+            android:theme="@style/Theme.Design.NoActionBar"/>
 
     </application>
 

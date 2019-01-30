@@ -74,8 +74,8 @@ dependencies {
     implementation project(path: ':pickphotoview')
     implementation project(':umLibrary')
     implementation files('libs/tbs_sdk_thirdapp_v3.6.0.1249_43610.jar')
-    compile  'com.umeng.umsdk:analytics:7.5.4'
-    compile  'com.umeng.umsdk:common:1.5.4'
+    implementation  'com.umeng.umsdk:analytics:7.5.4'
+    implementation  'com.umeng.umsdk:common:1.5.4'
 }
 
 

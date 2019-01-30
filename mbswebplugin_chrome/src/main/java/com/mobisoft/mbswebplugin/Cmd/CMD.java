@@ -325,6 +325,10 @@ public class CMD {
 	 * sha1加密
 	 */
 	public final static String cmd_shaone = "shaone";//获取缓存大小
+	/***
+	 * 添加日历
+	 */
+	public final static String cmd_AddCalendarEvent = "addcalendarevent";//添加日历
 
 	/*************************分割线***************************/
 

@@ -150,10 +150,10 @@ public class SuperVideoPlay implements Recycler.Recycleable {
 					backResult.setCode(200);
 					backResult.setMsg("已经设置过同样的视频课程了!");
 					backResult.setResult(true);
-					final IAliyunVodPlayer.PlayerState playerState = mAliyunVodPlayerView.getPlayerState();
-					if(playerState == IAliyunVodPlayer.PlayerState.Stopped){
-						mAliyunVodPlayerView.start();
-					}
+//					final IAliyunVodPlayer.PlayerState playerState = mAliyunVodPlayerView.getPlayerState();
+//					if(playerState == IAliyunVodPlayer.PlayerState.Stopped){
+//						mAliyunVodPlayerView.reTry();
+//					}
 //					mAliyunVodPlayerView.setPlayInfo(params);
 					return backResult;
 				}
@@ -253,7 +253,15 @@ public class SuperVideoPlay implements Recycler.Recycleable {
 	}
 
 	public void start() {
-		if (mAliyunVodPlayerView != null) mAliyunVodPlayerView.onSart();
+		if (mAliyunVodPlayerView != null){
+			final IAliyunVodPlayer.PlayerState playerState = mAliyunVodPlayerView.getPlayerState();
+			if(playerState == IAliyunVodPlayer.PlayerState.Stopped){
+				mAliyunVodPlayerView.reTry();
+			}else {
+				mAliyunVodPlayerView.onSart();
+			}
+		}
+
 
 	}
 
@@ -269,14 +277,24 @@ public class SuperVideoPlay implements Recycler.Recycleable {
 
 	public boolean onKeyDown() {
 		if (mAliyunVodPlayerView != null) {
-			if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+			  AliyunScreenMode mCurrentScreenMode = mAliyunVodPlayerView.getScreenMode();
+			//屏幕由竖屏转为横屏
+			if (mCurrentScreenMode == AliyunScreenMode.Full) {
 				//设置为小屏状态
 				mAliyunVodPlayerView.changeScreenMode(AliyunScreenMode.Small);
 				return false;
-			}else {
+			} else {
 				mAliyunVodPlayerView.pause("close");
 //				mAliyunVodPlayerView.onStop();
 			}
+//			if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//				//设置为小屏状态
+//				mAliyunVodPlayerView.changeScreenMode(AliyunScreenMode.Small);
+//				return false;
+//			}else {
+//				mAliyunVodPlayerView.pause("close");
+////				mAliyunVodPlayerView.onStop();
+//			}
 		}
 		return true;
 	}

@@ -47,16 +47,16 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files('libs/SecurityEnvSDK-release-1.1.0.jar')
+    api fileTree(include: ['*.jar'], dir: 'libs')
     //    implementation files('libs/umeng-common-1.5.3.jar')
     //    implementation files('libs/umeng-share-core-6.9.2.jar')
     //    implementation files('libs/umeng-share-wechat-simplify-6.9.2.jar')
     //    implementation files('libs/umeng-shareboard-widget-6.9.2.jar')
     //    implementation files('libs/umeng-sharetool-6.9.2.jar')
-    implementation files('libs/utdid4all-1.1.5.3_proguard.jar')
-    implementation files('libs/umeng-share-core-6.9.4.jar')
-    implementation files('libs/umeng-share-wechat-simplify-6.9.4.jar')
-    implementation files('libs/umeng-shareboard-widget-6.9.4.jar')
-    implementation files('libs/umeng-sharetool-6.9.4.jar')
+    api files('libs/SecurityEnvSDK-release-1.1.0.jar')
+    api files('libs/utdid4all-1.1.5.3_proguard.jar')
+    api files('libs/umeng-share-core-6.9.4.jar')
+    api files('libs/umeng-share-wechat-simplify-6.9.4.jar')
+    api files('libs/umeng-shareboard-widget-6.9.4.jar')
+    api files('libs/umeng-sharetool-6.9.4.jar')
 }

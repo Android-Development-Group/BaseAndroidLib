@@ -4,7 +4,8 @@
     package="com.mobisoft.mbstest">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <application
         android:name=".Base.dingyingapp"
         android:allowBackup="true"

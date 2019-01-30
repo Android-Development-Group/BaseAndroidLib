@@ -61,6 +61,15 @@ public class PhoneInfo extends DoCmdMethod {
 			t.printStackTrace();
 			registrationid = t.getMessage();
 		}
+		/**
+		 * version  APP 版本号
+		 * uuid     APP 唯一标识
+		 * bundleid  包名
+		 * osType    系统类型
+		 * osModel   系统的版本
+		 * AppName   APP的name
+		 * jpushid   极光推送的注册ID
+		 */
 		try {
 			object.put("version", getVersionName(context));
 			object.put("uuid", UUIDTools.getInstance().getUuid(context));

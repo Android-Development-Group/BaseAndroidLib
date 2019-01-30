@@ -2151,6 +2151,8 @@ public class AliyunVodPlayerView extends RelativeLayout implements ITheme {
 			handler.sendEmptyMessageDelayed(0, 1000);
 		} else if (playerState == PlayerState.Paused || playerState == PlayerState.Prepared) {
 			start();
+		}else if(playerState == PlayerState.Stopped ){
+
 		}
 	}
 

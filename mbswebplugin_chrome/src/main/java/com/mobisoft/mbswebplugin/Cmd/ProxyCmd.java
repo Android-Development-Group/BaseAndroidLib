@@ -1,5 +1,6 @@
 package com.mobisoft.mbswebplugin.Cmd;
 
+import com.mobisoft.mbswebplugin.Cmd.DoCmd.AddCalendarEvent;
 import com.mobisoft.mbswebplugin.Cmd.DoCmd.AlbumOrCamera;
 import com.mobisoft.mbswebplugin.Cmd.DoCmd.AllowChangeScreen;
 import com.mobisoft.mbswebplugin.Cmd.DoCmd.Camera;
@@ -195,6 +196,7 @@ public class ProxyCmd {
 		hashmap.put(CMD.cmd_getCache, getCache.class.getName());
 		hashmap	.put(CMD.cmd_shaone, Sha1Encryption.class.getName());
 		hashmap.put(CMD.cmd_AllowChangeScreen, AllowChangeScreen.class.getName());
+		hashmap.put(CMD.cmd_AddCalendarEvent, AddCalendarEvent.class.getName());
 	}
 
 	/**

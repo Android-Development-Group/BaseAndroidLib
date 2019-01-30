@@ -25,6 +25,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.github.chrisbanes.photoview.OnPhotoTapListener;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.mobisoft.mbswebplugin.Cmd.Working.DefaultDownloadCreator;
 import com.mobisoft.mbswebplugin.R;
 import com.mobisoft.mbswebplugin.utils.ToastUtil;
@@ -38,9 +40,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import uk.co.senab.photoview.PhotoView;
-import uk.co.senab.photoview.PhotoViewAttacher;
 
 import static com.mobisoft.mbswebplugin.base.AppConfing.PERMISSIONS_REQUEST_CODE_SD;
 
@@ -224,9 +223,9 @@ public class ImagePagerActivity extends Activity {
 
 
                 container.addView(view, 0);
-                imageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+                imageView.setOnPhotoTapListener(new OnPhotoTapListener() {
                     @Override
-                    public void onPhotoTap(View view, float x, float y) {
+                    public void onPhotoTap(ImageView view, float x, float y) {
                         finish();
                     }
                 });

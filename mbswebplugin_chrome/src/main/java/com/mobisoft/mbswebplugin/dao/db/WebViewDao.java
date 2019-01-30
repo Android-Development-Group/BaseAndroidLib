@@ -14,66 +14,72 @@
 package com.mobisoft.mbswebplugin.dao.db;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 public class WebViewDao {
-    /**
-     * webview的表名
-     */
-    public static final String TABLE_NAME = "webviewdao";
-    /**
-     *  主键 id
-     */
-    public static final String COLUMN_ACCOUNT = "account";
-    /**
-     * webview 网络数据的key
-     */
-    public static final String COLUMN_KEY = "key";
-    /**
-     * webview 网络数据的json
-     */
-    public static final String COLUMN_JSON = "value";
+	/**
+	 * webview的表名
+	 */
+	public static final String TABLE_NAME = "webviewdao";
+	/**
+	 * 主键 id
+	 */
+	public static final String COLUMN_ACCOUNT = "account";
+	/**
+	 * webview 网络数据的key
+	 */
+	public static final String COLUMN_KEY = "key";
+	/**
+	 * webview 网络数据的json
+	 */
+	public static final String COLUMN_JSON = "value";
 
-    public WebViewDao(Context context) {
-        DemoDBManager.getInstance().onInit(context);
-    }
+	public WebViewDao(Context context) {
+		DemoDBManager.getInstance().onInit(context);
+	}
 
-    /**
-     * 保存 webview 到 数据库
-     * @param account  传入唯一 webview的标识
-     * @param key  传入webview 的key
-     * @param json  传入webview的json
-     */
-    public long saveWebviewJson(String account, String key, String json) {
-        return DemoDBManager.getInstance().saveWebviewJson(account, key, json);
+	/**
+	 * 保存 webview 到 数据库
+	 *
+	 * @param account 传入唯一 webview的标识
+	 * @param key     传入webview 的key
+	 * @param json    传入webview的json
+	 */
+	public long saveWebviewJson(String account, String key, String json) {
+		return DemoDBManager.getInstance().saveWebviewJson(account, key, json);
 
-    }
+	}
 
-    /**
-     * 根绝key删除某一个值
-     * @param account account 为空不用传递
-     * @param key
-     */
-    public int deleteWebviewList(String account, String key) {
-        return DemoDBManager.getInstance().deletWebviewList(account, key);
-    }
+	/**
+	 * 根绝key删除某一个值
+	 *
+	 * @param account account 为空不用传递
+	 * @param key
+	 */
+	public int deleteWebviewList(String account, String key) {
+		return DemoDBManager.getInstance().deletWebviewList(account, key);
+	}
 
-    /**
-     *
-     * @param account
-     * @param key
-     * @return
-     */
-    public String getWebviewValuejson(String account, String key) {
-        return DemoDBManager.getInstance().getWebviewJson(account, key);
-    }
+	/**
+	 * @param account
+	 * @param key
+	 * @return
+	 */
+	public String getWebviewValuejson(String account, String key) {
+		if (TextUtils.isEmpty(account)) {
+			return DemoDBManager.getInstance().getWebviewJson(key);
+		} else {
+			return DemoDBManager.getInstance().getWebviewJson(account, key);
 
-    /**
-     *
-     * @param key
-     * @return
-     */
-    public String getWebviewValuejson(String key) {
-        return DemoDBManager.getInstance().getWebviewJson(key);
-    }
+		}
+	}
+
+	/**
+	 * @param key
+	 * @return
+	 */
+	public String getWebviewValuejson(String key) {
+		return DemoDBManager.getInstance().getWebviewJson(key);
+	}
 
 }

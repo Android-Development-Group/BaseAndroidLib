@@ -65,8 +65,8 @@ import com.mobisoft.mbswebplugin.base.ActivityManager;
 import com.mobisoft.mbswebplugin.base.AppConfing;
 import com.mobisoft.mbswebplugin.base.Recycler;
 import com.mobisoft.mbswebplugin.proxy.Setting.ProxyConfig;
+import com.mobisoft.mbswebplugin.refresh.BGANormalRefreshViewHolder;
 import com.mobisoft.mbswebplugin.refresh.BGARefreshLayout;
-import com.mobisoft.mbswebplugin.refresh.BGAYaoWanRefreshViewHolder;
 import com.mobisoft.mbswebplugin.utils.ActivityCollector;
 import com.mobisoft.mbswebplugin.utils.NetworkUtils;
 import com.mobisoft.mbswebplugin.utils.ToastUtil;
@@ -734,9 +734,9 @@ public class MbsWebFragment extends Fragment implements MbsWebPluginContract.Vie
 		ll_head_title.setClickable(false);
 		mLl_back.setOnClickListener(this);
 		// 正常默认的下拉加载图片
-//		bgaRefreshLayout.setRefreshViewHolder(new BGANormalRefreshViewHolder(mContext.getApplicationContext(), true));
+		bgaRefreshLayout.setRefreshViewHolder(new BGANormalRefreshViewHolder(mContext.getApplicationContext(), true));
 //// 蛇牌学院的下拉加载东花 逐帧动画
-		bgaRefreshLayout.setRefreshViewHolder(new BGAYaoWanRefreshViewHolder(mContext.getApplicationContext(), true));
+//		bgaRefreshLayout.setRefreshViewHolder(new BGAYaoWanRefreshViewHolder(mContext.getApplicationContext(), true));
 		search_cancel.setOnClickListener(this);
 		search_back.setOnClickListener(this);
 		if (presenter != null && !TextUtils.isEmpty(urlStr)) {
