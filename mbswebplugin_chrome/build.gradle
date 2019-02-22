@@ -56,9 +56,8 @@ dependencies {
     compileOnly 'com.android.support:support-v4:27.1.1'
     compileOnly 'com.android.support:recyclerview-v7:27.1.1'
     compileOnly 'com.loopj.android:android-async-http:1.4.9'
-//    compileOnly 'com.github.chrisbanes.photoview:library:1.2.4'
+    //    compileOnly 'com.github.chrisbanes.photoview:library:1.2.4'
     compileOnly 'com.github.chrisbanes:PhotoView:2.1.4'
-
     //    implementation 'com.werb.pickphotoview:pickphotoview:0.4.6'
     // Last Version
     compileOnly 'com.google.code.gson:gson:2.8.0'

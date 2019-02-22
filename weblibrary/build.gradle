@@ -70,7 +70,6 @@ dependencies {
     compile 'com.felipecsl:gifimageview:2.2.0'
     compile 'com.contrarywind:Android-PickerView:3.2.5'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
-
     compile files('libs/tbs_sdk_thirdapp_v3.6.0.1183_43604_sharewithdownload_withoutGame_obfs_20180211_105126.jar')
 }
 

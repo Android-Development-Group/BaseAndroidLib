@@ -1,8 +1,13 @@
 package com.mobisoft.mbswebplugin.base;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -12,11 +17,13 @@ import com.mobisoft.mbswebplugin.proxy.Setting.ProxyConfig;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Locale;
 
 
 public class BaseWebActivity extends AppCompatActivity {
 
 	public boolean isNeedClose = true;
+	public WebViewDao webViewDao;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +36,34 @@ public class BaseWebActivity extends AppCompatActivity {
 			MIUISetStatusBarLightMode(this.getWindow(), true);
 			FlymeSetStatusBarLightMode(this.getWindow(), true);
 		}
+		setLanguage();
 
 
+	}
+
+	private void setLanguage() {
+		webViewDao = new WebViewDao(this);
+		String currentLanguage = webViewDao.getWebviewValuejson("currentLanguage");
+		if (TextUtils.equals("ENGLISH", currentLanguage)) {
+			Resources resources = getResources();
+			DisplayMetrics dm = resources.getDisplayMetrics();
+			Configuration config = resources.getConfiguration();
+			// 应用用户选择语言
+			config.locale = Locale.ENGLISH;
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+				createConfigurationContext(config);
+			}
+			resources.updateConfiguration(config, dm);
+		}else if(TextUtils.isEmpty(currentLanguage)){
+
+		}else {
+			Resources resources = getResources();
+			DisplayMetrics dm = resources.getDisplayMetrics();
+			Configuration config = resources.getConfiguration();
+			// 应用用户选择语言
+			config.locale = Locale.CHINA;
+			resources.updateConfiguration(config, dm);
+		}
 	}
 
 	/**

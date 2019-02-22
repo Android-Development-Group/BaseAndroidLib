@@ -54,7 +54,7 @@ public class DownloadVideoVo  implements Serializable  {
 		this.column = column;
 	}
 
-	@Generated(hash = 358276543)
+	@Generated(hash = 27139997)
 	public DownloadVideoVo() {
 	}
 

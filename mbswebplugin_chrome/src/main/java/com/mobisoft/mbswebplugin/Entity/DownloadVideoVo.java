@@ -4,12 +4,13 @@ import android.text.TextUtils;
 
 import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.Unique;
 
 import java.io.Serializable;
 import java.util.List;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Author：Created by fan.xd on 2018/6/18.
@@ -39,7 +40,7 @@ public class DownloadVideoVo  implements Serializable  {
 	private String status;// 下载状态
 	private String column;// 栏目
 
-	@Generated(hash = 1798457879)
+	@Keep
 	public DownloadVideoVo(Long id, String title, String video_description,
 			String coverForFeed, String course_no, List<Videos> videos, String callBack,
 			String status, String column) {
@@ -54,7 +55,7 @@ public class DownloadVideoVo  implements Serializable  {
 		this.column = column;
 	}
 
-	@Generated(hash = 358276543)
+	@Keep
 	public DownloadVideoVo() {
 	}
 

@@ -329,6 +329,7 @@ public class CMD {
 	 * 添加日历
 	 */
 	public final static String cmd_AddCalendarEvent = "addcalendarevent";//添加日历
+	public final static String cmd_ChangerLanguage = "changerlanguage";//添加日历
 
 	/*************************分割线***************************/
 
