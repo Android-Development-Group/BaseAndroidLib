@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
+
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -17,6 +17,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
     sourceSets {
         main {
@@ -29,34 +33,16 @@ android {
             assets.srcDirs = ['assets']
             jniLibs.srcDirs = ['libs']
         }
-
-        // Move the tests to tests/java, tests/res, etc...
-        androidTest.setRoot('tests')
-
-        // Move the build types to build-types/<type>
-        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
-        // This moves them out of them default location under src/<type>/... which would
-        // conflict with src/ being used by the main source set.
-        // Adding new build types or product flavors should be accompanied
-        // by a similar customization.
-        debug.setRoot('build-types/debug')
-        release.setRoot('build-types/release')
-    }
-    productFlavors {
     }
 }
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    //    implementation files('libs/umeng-common-1.5.3.jar')
-    //    implementation files('libs/umeng-share-core-6.9.2.jar')
-    //    implementation files('libs/umeng-share-wechat-simplify-6.9.2.jar')
-    //    implementation files('libs/umeng-shareboard-widget-6.9.2.jar')
-    //    implementation files('libs/umeng-sharetool-6.9.2.jar')
-    api files('libs/SecurityEnvSDK-release-1.1.0.jar')
-    api files('libs/utdid4all-1.1.5.3_proguard.jar')
-    api files('libs/umeng-share-core-6.9.4.jar')
-    api files('libs/umeng-share-wechat-simplify-6.9.4.jar')
-    api files('libs/umeng-shareboard-widget-6.9.4.jar')
-    api files('libs/umeng-sharetool-6.9.4.jar')
+
+//    api files('libs/SecurityEnvSDK-release-1.1.0.jar')
+//    api files('libs/utdid4all-1.1.5.3_proguard.jar')
+//    api files('libs/umeng-share-core-6.9.4.jar')
+//    api files('libs/umeng-share-wechat-simplify-6.9.4.jar')
+//    api files('libs/umeng-shareboard-widget-6.9.4.jar')
+//    api files('libs/umeng-sharetool-6.9.4.jar')
 }

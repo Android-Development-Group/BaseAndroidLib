@@ -511,7 +511,7 @@ public class FileUtils {
 		}
 
 		//保存所有元素
-		canvas.save(Canvas.ALL_SAVE_FLAG);
+		canvas.save();
 		canvas.restore();
 
 		return bmp;

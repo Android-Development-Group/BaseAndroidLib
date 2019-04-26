@@ -1,1 +1,6 @@
-include ':app', ':weblibrary', ':x5_mbswebplugin',':AILIYUN_PLAY_SkinLibrary','umLibrary','pickphotoview','mbswebplugin_chrome',':CNCMediaPlayerSDK'
+include ':app', ':AILIYUN_PLAY_SkinLibrary', 'umLibrary', 'pickphotoview'
+
+include ':CNCMediaPlayerSDK'
+//include ':x5_mbswebplugin'
+include ':weblibrary'
+include ':mbswebplugin_chrome'

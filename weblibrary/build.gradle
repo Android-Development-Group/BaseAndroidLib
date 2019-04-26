@@ -1,22 +1,21 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '27.0.3'
-//    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             //设置支持的SO库架构
-            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
     buildTypes {
@@ -27,6 +26,7 @@ android {
     }
     lintOptions {
         abortOnError false
+        checkReleaseBuilds false
     }
 
     dataBinding {
@@ -34,11 +34,11 @@ android {
     }
     //android studio默认so文件加载目录为:src/main/jniLibs
 //    如在module的build.gradle按照如下方式,自定义了so文件加载目录请确保对应目录下只有armeabi目录
-        sourceSets {
-            main{
-                jniLibs.srcDirs = ['libs']
-            }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
         }
+    }
 }
 task clearJar(type: Delete) {
     delete 'build/libs/mbswbplugin_0.0.9.jar'////这行表示如果你已经打过一次包了，再进行打包则把原来的包删掉
@@ -56,21 +56,31 @@ makeJar.dependsOn(clearJar, build)
 
 
 dependencies {
-    compile files('libs/picasso-2.5.2.jar')
-    compile files('libs/fastjson-1.2.23.jar')
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:support-v4:25.3.1'
-    provided 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.mobisoft.view:mbsmsgview:0.0.1@aar'
-    compile 'com.loopj.android:android-async-http:1.4.9'
-    compile 'com.github.chrisbanes.photoview:library:1.2.4'
-    compile 'com.werb.pickphotoview:pickphotoview:0.1.5'
-    // Last Version
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.felipecsl:gifimageview:2.2.0'
-    compile 'com.contrarywind:Android-PickerView:3.2.5'
-    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
-    compile files('libs/tbs_sdk_thirdapp_v3.6.0.1183_43604_sharewithdownload_withoutGame_obfs_20180211_105126.jar')
+    implementation  fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+
+    implementation 'com.github.chrisbanes.photoview:library:1.2.4'
+    implementation 'com.werb.pickphotoview:pickphotoview:0.1.5'
+
+//    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
+    implementation 'com.contrarywind:Android-PickerView:3.2.5'
+
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    implementation 'com.felipecsl:gifimageview:2.2.0'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.alibaba:fastjson:1.2.23'
+
+    implementation 'com.mobisoft.view:mbsmsgview:0.0.1@aar'
+
+    api files('libs/tbs_sdk_thirdapp_v3.6.0.1183_43604_sharewithdownload_withoutGame_obfs_20180211_105126.jar')
 }
 
 //if (project.hasProperty("android")) { // Android libraries
