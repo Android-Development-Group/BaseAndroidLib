@@ -2,5 +2,5 @@ include ':app', ':AILIYUN_PLAY_SkinLibrary', 'umLibrary', 'pickphotoview'
 
 include ':CNCMediaPlayerSDK'
 //include ':x5_mbswebplugin'
-//include ':weblibrary'
+include ':weblibrary'
 include ':mbswebplugin_chrome'
